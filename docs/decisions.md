@@ -54,7 +54,13 @@
 
 **Limit.** Mocked tests check the configuration's logic, not AWS's behaviour. Only `terraform apply` in a real account proves the path works; see the [runbook](runbook.md).
 
-## 9. Accepted scanner findings
+## 9. for_each keys known at plan time
+
+**Problem.** The first version used `for_each = toset(<instance IDs>)` for the NLB target attachments and `toset(<VPC IDs>)` for the DNS query-log associations. IDs only exist after apply, so Terraform cannot plan those resources on a fresh account. OpenTofu accepted it in the local test run; the Terraform CI run failed, which is exactly what CI is for.
+
+**Decision.** Modules take maps with static keys chosen by the caller (`{ service-0 = <id> }`, `{ consumer = <vpc id> }`). Only the values are unknown at plan time.
+
+## 10. Accepted scanner findings
 
 | Finding (tfsec) | Decision |
 |---|---|
