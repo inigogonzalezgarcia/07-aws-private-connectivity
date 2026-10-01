@@ -38,8 +38,10 @@ resource "aws_lb_target_group" "this" {
   }
 }
 
+# Keys are static names chosen by the caller; only the values (instance IDs) are known after
+# apply. for_each over the IDs themselves would fail to plan before the instances exist.
 resource "aws_lb_target_group_attachment" "this" {
-  for_each         = toset(var.target_instance_ids)
+  for_each         = var.targets
   target_group_arn = aws_lb_target_group.this.arn
   target_id        = each.value
   port             = var.port

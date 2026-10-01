@@ -17,10 +17,10 @@ variable "port" {
   type        = number
 }
 
-variable "target_instance_ids" {
-  description = "EC2 instances behind the NLB."
-  type        = list(string)
-  default     = []
+variable "targets" {
+  description = "EC2 instances behind the NLB, as static name => instance ID."
+  type        = map(string)
+  default     = {}
 }
 
 variable "allowed_principals" {
