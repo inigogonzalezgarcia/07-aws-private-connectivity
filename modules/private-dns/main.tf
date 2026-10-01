@@ -17,7 +17,7 @@ resource "aws_route53_zone" "this" {
   comment = "Private names for PrivateLink endpoints (managed by Terraform)"
 
   dynamic "vpc" {
-    for_each = toset(var.vpc_ids)
+    for_each = var.vpcs
     content {
       vpc_id = vpc.value
     }
@@ -53,7 +53,7 @@ resource "aws_route53_resolver_query_log_config" "this" {
 }
 
 resource "aws_route53_resolver_query_log_config_association" "this" {
-  for_each                     = var.query_logging ? toset(var.vpc_ids) : toset([])
+  for_each                     = var.query_logging ? var.vpcs : {}
   resolver_query_log_config_id = aws_route53_resolver_query_log_config.this[0].id
   resource_id                  = each.value
 }

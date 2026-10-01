@@ -3,9 +3,9 @@ variable "zone_name" {
   type        = string
 }
 
-variable "vpc_ids" {
-  description = "VPCs that can resolve the zone."
-  type        = list(string)
+variable "vpcs" {
+  description = "VPCs that can resolve the zone, as static name => VPC ID (keys must be known at plan time)."
+  type        = map(string)
 }
 
 variable "records" {
