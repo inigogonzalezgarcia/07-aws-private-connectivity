@@ -40,3 +40,6 @@ jobs:
 
       - name: tfsec
         uses: aquasecurity/tfsec-action@v1.0.3
+        with:
+          version: v1.28.14
+          github_token: ${{ github.token }} # avoids GitHub API rate limits when the action downloads tfsec
