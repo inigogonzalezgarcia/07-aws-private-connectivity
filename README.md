@@ -49,7 +49,7 @@ terraform validate
 terraform test          # mocked AWS provider: no credentials, no cost
 ```
 
-The tests check that the pieces are wired together (endpoint to service, alias to endpoint, accepter), that the instances are locked down, and that bad inputs (`"*"` as principal, invalid names) are rejected. CI runs these on every push, together with `terraform fmt` and [tfsec](https://github.com/aquasecurity/tfsec). Two tfsec findings are accepted on purpose; the reasons are in [docs/decisions.md](docs/decisions.md#9-accepted-scanner-findings).
+The tests check that the pieces are wired together (endpoint to service, alias to endpoint, accepter), that the instances are locked down, and that bad inputs (`"*"` as principal, invalid names) are rejected. CI runs these on every push, together with `terraform fmt` and [tfsec](https://github.com/aquasecurity/tfsec). Two tfsec findings are accepted on purpose; the reasons are in [docs/decisions.md](docs/decisions.md#10-accepted-scanner-findings).
 
 ## Deploy it (sandbox account)
 
