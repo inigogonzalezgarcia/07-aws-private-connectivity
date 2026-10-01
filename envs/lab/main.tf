@@ -50,7 +50,7 @@ module "endpoint_service" {
   vpc_id              = module.provider_vpc.vpc_id
   subnet_ids          = module.provider_vpc.private_subnet_ids
   port                = var.service_port
-  target_instance_ids = aws_instance.service[*].id
+  targets             = { for i, instance in aws_instance.service : "service-${i}" => instance.id }
   allowed_principals  = local.allowed_principals
   acceptance_required = true
 }
@@ -77,7 +77,7 @@ resource "aws_vpc_endpoint_connection_accepter" "orders" {
 module "private_dns" {
   source    = "../../modules/private-dns"
   zone_name = var.private_zone
-  vpc_ids   = [module.consumer_vpc.vpc_id]
+  vpcs      = { consumer = module.consumer_vpc.vpc_id }
   records = {
     orders = {
       dns_name       = module.orders_endpoint.dns_name
