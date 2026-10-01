@@ -68,10 +68,6 @@ Step-by-step test, troubleshooting table and clean-up: [docs/runbook.md](docs/ru
 - **Verified:** `fmt`, `validate`, the mocked tests (5 runs, all passing) and a tfsec scan with no open findings, using OpenTofu 1.10 and the AWS provider 5.70. CI runs the same checks with Terraform.
 - **Not yet verified:** `apply` in a real AWS account. The design follows the AWS documentation for PrivateLink, NLB and Route 53, but until it has been applied and the `curl` in the runbook succeeds, treat it as untested against AWS.
 
-## How AI was used
-
-Built with an AI assistant (Claude) as a pair programmer: it drafted the modules, tests and documentation from the scope I set. Every change was reviewed, and the checks above were run before publishing. Responsibility for the result, and for keeping it correct, stays with me.
-
 ## Roadmap
 
 - Apply in a sandbox account and add the real `curl` output and flow-log samples to the runbook.
