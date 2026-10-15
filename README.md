@@ -80,7 +80,7 @@ Step-by-step test, troubleshooting table and clean-up: [docs/runbook.md](docs/ru
 
 Want this adapted to your environment (cross-account PrivateLink, your naming and tagging standards, a landing-zone module, a review of an existing setup)? Get in touch:
 
-- Email: [inigogonzalezgarcia@yahoo.es](mailto:inigogonzalezgarcia@yahoo.es)
+- Website (contact form): [inigogonzalezgarcia.github.io](https://inigogonzalezgarcia.github.io/about.html#contacto)
 - LinkedIn: [linkedin.com/in/igonzalez93](https://www.linkedin.com/in/igonzalez93)
 
 ## License
