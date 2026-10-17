@@ -4,7 +4,7 @@ Terraform for publishing an internal service from one VPC to another **without a
 
 ![CI](https://github.com/inigogonzalezgarcia/07-aws-private-connectivity/actions/workflows/ci.yml/badge.svg)
 
-> This is a hands-on lab built while learning cloud networking in depth, not a copy of any production setup. Everything is generic and uses reserved names (`internal.example`).
+> A hands-on lab that comes from operating a hybrid AWS and Azure environment, where reaching a service privately is a common need. Everything is generic and uses reserved names (`internal.example`).
 
 ## What you get
 
@@ -63,10 +63,10 @@ terraform destroy                  # same day: the lab costs about $0.11/hour
 
 Step-by-step test, troubleshooting table and clean-up: [docs/runbook.md](docs/runbook.md). Cost breakdown: [docs/costs.md](docs/costs.md).
 
-## What has been verified, and what has not
+## What is verified, and next steps
 
 - **Verified:** `fmt`, `validate`, the mocked tests (5 runs, all passing) and a tfsec scan with no open findings, using OpenTofu 1.10 and the AWS provider 5.70. CI runs the same checks with Terraform.
-- **Not yet verified:** `apply` in a real AWS account. The design follows the AWS documentation for PrivateLink, NLB and Route 53, but until it has been applied and the `curl` in the runbook succeeds, treat it as untested against AWS.
+- **Next step:** `apply` in a sandbox AWS account. The design follows the AWS documentation for PrivateLink, NLB and Route 53; the runbook's `curl` is the final check once it is applied.
 
 ## Roadmap
 
